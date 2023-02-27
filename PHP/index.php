@@ -10,7 +10,7 @@
     <main>
         <header>
             <div>
-                <a href="">Hello</a>
+                <a href="">Log</a>
             </div>
         </header>
     </main>
