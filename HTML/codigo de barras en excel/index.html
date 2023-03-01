@@ -53,7 +53,7 @@
 
         if(!['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.ms-excel'].includes(event.target.files[0].type))
         {
-            document.getElementById('excel_data').innerHTML = '<div class="alert alert-danger">Only .xlsx or .xls file format are allowed</div>';
+            document.getElementById('excel_data').innerHTML = '<div class="alert alert-danger">Solo se permite el formato de archivo .xlsx o .xls</div>';
 
             excel_file.value = '';
 
