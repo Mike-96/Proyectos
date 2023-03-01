@@ -1,0 +1,28 @@
+@font-face {
+    font-family: Ccode39;
+    src: url('../font/ConnectCode39.ttf');
+}
+
+@media print{@page {size: landscape}}
+
+table
+{
+    border-spacing: 0px;
+    
+}
+.td-barcode{
+    font-family: Ccode39;
+    text-align: center;
+    align-content: center;
+}
+
+td, th{
+    border: 2px solid #000 !important;
+
+}
+
+.barrah4{
+    font-family: Ccode39;
+}
+
+@media print { div{ page-break-inside: avoid; } }

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>Generar C&oacute;digo de Barras desde archivos Excel</title>
+
+    <!-- <link rel="stylesheet" href="css/bootstrapV4.0.min.css"> -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/normalize.css">
+
+
+
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon32x32.png">
+
+
+
+
+</head>
+<body>
+
+    <div class="container">
+        <h2 class="text-center mt-4 mb-4 h1">Generar C&oacute;digo de Barras desde archivos Excel <span class="h5">By.Kevin Garc&iacute;a</span></h2> 
+        <h5 class="text-center mt-4 mb-4 barrah4"><span class="h5">By.Kevin Garcia</span></h5> 
+
+        <div class="card">
+            <div class="card-header h3">Seleccione archivo Excel</div>
+            
+            <div class="card-body">
+
+                <input class="form-control" type="file" id="excel_file"/>
+
+            </div>
+        </div>
+        <button type="button" id="print" onclick="printTable('excel_data');" class="btn btn-warning btn-lg mt-3">Imprimir</button>
+    </div>
+
+    <div>
+
+        <div id="excel_data" class="mt-2"></div>
+
+    </div>
+
+    <script>
+        const excel_file = document.getElementById('excel_file');
+
+        excel_file.addEventListener('change', (event) => {
+
+        if(!['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.ms-excel'].includes(event.target.files[0].type))
+        {
+            document.getElementById('excel_data').innerHTML = '<div class="alert alert-danger">Only .xlsx or .xls file format are allowed</div>';
+
+            excel_file.value = '';
+
+            return false;
+        }
+
+        var reader = new FileReader();
+
+        reader.readAsArrayBuffer(event.target.files[0]);
+
+        reader.onload = function(event){
+
+            var data = new Uint8Array(reader.result);
+
+            var work_book = XLSX.read(data, {type:'array'});
+
+            var sheet_name = work_book.SheetNames;
+
+            var sheet_data = XLSX.utils.sheet_to_json(work_book.Sheets[sheet_name[0]], {header:1});
+
+            if(sheet_data.length > 0)
+            {
+                var table_output = '<table class="table table-bordered border-dark" id="rwd" style="table-layout:none" border="1" >';
+
+                table_output +='<colgroup> <col span="0:4" class="col4"> </colgroup>'
+                            
+                for(var row = 0; row < sheet_data.length; row++)
+                {
+                    table_output += '<tr>';
+
+                    for(var cell = 0; cell < sheet_data[row].length; cell++)
+                    {
+                        if(row == 0)
+                        {
+                            table_output += '<th class="table-dark">'+sheet_data[row][cell]+'</th>';
+                        }
+                        else
+                        {
+                            if(cell == 0){
+                                table_output += '<td class="td-barcode">*'+sheet_data[row][cell]+'*</td>'
+                            }
+                            else{
+
+                                table_output += '<td>'+sheet_data[row][cell]+'</td>';
+                            }
+                            
+                        }
+                    }
+                    table_output += '</tr>';
+                }
+                table_output += '</table>';
+
+                document.getElementById('excel_data').innerHTML = table_output;
+            
+            }
+            excel_file.value = '';
+        }
+
+        });
+
+
+    </script>
+
+    <script>
+        function printTable(idprint) {
+            var contenido= document.getElementById(idprint).innerHTML;
+            var contenidoOriginal= document.body.innerHTML;
+
+            document.body.innerHTML = contenido;
+
+            window.print();
+
+            document.body.innerHTML = contenidoOriginal;
+        }
+        
+        // function imprinmir(){
+        //     $('#rwd').printThis({
+        //         importCSS: true,
+        //         importStyle: true,
+        //         printContainer: true,
+        //         loadCSS: "bootstrap/js/bootstrap.bundle.min.js",
+        //         loadCSS: "css/style.css",
+        //         });
+        // }
+    </script>
+
+<!--     
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/printThis.js"></script> -->
+
+    <script type="text/javascript" src="js/xlsx.full.min.js"></script>
+
+    <script type="text/javascript" src="bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>
+
