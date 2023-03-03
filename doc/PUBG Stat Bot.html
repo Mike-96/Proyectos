@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="PUBG Stat Bot" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://v1.padlet.pics/1/image.webp?t=c_limit%2Cdpr_1%2Ch_897%2Cw_897&url=https%3A%2F%2Fpadlet-uploads.storage.googleapis.com%2F677284383%2F6b141f5d670f984cbf86f52620d24305%2F1.png"
+    />
+    <meta
+      property="og:description"
+      content="Welcome To Official PUBG Stat Bot Website"
+    />
+    <link
+      href="https://v1.padlet.pics/1/image.webp?t=c_limit%2Cdpr_1%2Ch_897%2Cw_1256&url=https%3A%2F%2Fpadlet-uploads.storage.googleapis.com%2F677284383%2F66a23c9b174628b6c69277d7fcd9cae2%2Ffeaturedapp.png"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
+    <title>PUBG Stat Bot</title>
+    <link rel="stylesheet" href="./bar.css" />
+    <link rel="stylesheet" href="./main.css" />
+    <link rel="stylesheet" href="./stat.css" />
+  </head>
+  <body>
+    <header id="topbar">
+      <img src="./assests/logo.png" id="barlogo" />
+      <div class="flex" id="tabs">
+        <div class="tab">HOME</div>
+        <div class="tab">ABOUT</div>
+        <div class="tab">SUPPORT</div>
+        <div class="tab lasttab">DONATE</div>
+      </div>
+    </header>
+
+    <div id="main">
+      <div class="flex header">
+        <img src="./assests/logo.png" id="headerimg" />
+        <div id="headertext">
+          <div id="headertitle">PUBG Stat Bot</div>
+          <div id="headersubtitle">For Web</div>
+        </div>
+      </div>
+      <div class="flex" id="searchbar">
+        <input type="text" placeholder="PUBG IGN (CASE SENSITIVE)" id="ign" />
+      </div>
+      <div id="options">
+        <div id="platformoptions">
+          <div class="platformnames" data-value="steam">STEAM</div>
+          <div class="platformnames" data-value="steam">EPIC</div>
+          <div class="platformnames" data-value="kakao">KAKAO</div>
+          <div class="platformnames" data-value="xbox">XBOX</div>
+          <div class="platformnames" data-value="psn">PSN</div>
+          <div class="platformnames" data-value="stadia">STADIA</div>
+        </div>
+        <div id="cmdoptions">
+          <div class="cmdnames" data-value="n">NORMAL</div>
+          <div class="cmdnames" data-value="r">RANKED</div>
+          <div class="cmdnames" data-value="l">LIFETIME</div>
+          <div class="cmdnames weaponname" data-value="w">WEAPON MASTERY</div>
+        </div>
+        <div>
+          <select name="season" id="season">
+            <option value="null">Please Select PUBG Season</option>
+          </select>
+        </div>
+        <div id="searchbtn">SEARCH</div>
+        <div id="noticedes">
+          You Can download Your PUBG Stat just like PUBG Stat Bot
+        </div>
+        <div>
+          <div id="extitle">EX Pics</div>
+          <div>
+            <img class="statex" src="./assests/normal.png" alt="" />
+            <img class="statex" src="./assests/weapon.png" alt="" />
+            <img class="statex" src="./assests/ranked.png" alt="" />
+            <img class="statex" src="./assests/lifetime.png" alt="" />
+          </div>
+        </div>
+        <div id="notice">
+          PUBG Recent Matches Stat & Ranked Mode Stat Powered By SkilledID.com
+          Commands Are Only Avaiable on Discord.
+        </div>
+        <div id="invitebtnop">Invite to Your Server</div>
+      </div>
+    </div>
+    <div id="statcon">
+      <div id="stattitle">STATS</div>
+      <div id="statdes">You Can Check Your Stats Here</div>
+    </div>
+    <div id="footer">
+      2022 PUBG Stat Bot Team. <br />PUBG Stat Bot is a TRADEMARK OR SERVICE
+      MARK OF PUBG Stat Bot Team. <br />Contact: pubgstatbot@gmail.com
+    </div>
+    <script type="module" src="./beforestat.js"></script>
+    <script src="./bar.js"></script>
+    <script>
+      let statbtn = document.querySelector("#invitebtnop");
+      statbtn.addEventListener("click", () => {
+        location.href =
+          "https://discord.com/api/oauth2/authorize?client_id=992792208040276018&permissions=100352&scope=applications.commands%20bot";
+      });
+    </script>
+  </body>
+</html>

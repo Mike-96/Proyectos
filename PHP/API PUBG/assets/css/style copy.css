@@ -1,0 +1,56 @@
+
+/* Fonts Bayon*/
+@import url('https://fonts.googleapis.com/css2?family=Bayon&display=swap');
+/* Fonts Agency*/  
+@font-face {
+    font-family: Agency;
+    src: url('../fonts/Agency.ttf');
+}
+
+body {
+    margin: 0;
+    max-width: 100%;
+}
+
+.header-flex{
+   margin: 0 20px 0 20px;
+}
+
+.logo-size{
+    width: 350px;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 0 0;
+    padding: 15px;
+    background-color: #00425A;
+}
+
+.menu{
+    display: flex;
+    flex-flow: row wrap;
+    /* This aligns items to the end line on main-axis */
+    justify-content: center;
+    background-color: #FC7300;
+    height: 50px;
+  }
+  
+.menu-opcion{
+    display: flex;
+    flex-flow: row wrap;
+    padding: 10px 15px 10px 15px;
+    text-decoration: none;
+    color: white;
+  }
+
+.menu-opcion{
+    font-size: 20px;
+    font-family: 'Agency';
+    font-weight: bold;
+  }
+
+.menu-opcion:hover{
+    color: #2B3A55;
+
+  }
