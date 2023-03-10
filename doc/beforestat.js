@@ -1,3 +1,4 @@
+
 let commandbtn = document.querySelector("#command");
 let platformbtn = document.querySelector("#platform");
 let ignbtn = document.querySelector("#ign");
