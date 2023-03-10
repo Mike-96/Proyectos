@@ -14,17 +14,12 @@
 }
 
 body{
-  font-family: 'Agency',sans-serif;
-  background-color: #F0EEED;
-  background-size: cover;
-  background-repeat: no-repeat;
-  font-family: 'Agency',sans-serif;
+  background-color: #101820;
 }
 
 nav{
   position: absolute;
-  background-color: #00425A;
-  box-shadow: #FC7300;
+  background-color: #000000;
   height: 80px;
   width: 100%;
 }
@@ -63,7 +58,7 @@ a.active, ul li a:hover{
   background: #FC7300;
   cursor: pointer;
   transition: .5s;
-  padding: 20px;
+  padding: 15px;
   border-radius: 40px;
 }
 
@@ -100,3 +95,41 @@ main{
   overflow: hidden;
 }
 
+.ing-info{
+  margin: 100px;
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main div label{
+  color: white;
+  margin: 10px;
+  font-size: 20px;
+  transition: ease-in-out 0.3s;
+}
+
+.btnsearch-ing{
+  background-color: #FC7300;
+  padding: 0.4em 1em;
+  transition: ease-in-out 0.3s;
+  margin: 10px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#ing{
+  border-radius: 5px;
+  padding: 0.4em 1em;
+  border: 2px solid #4E6E81;
+  transition: ease-in-out 0.3s;
+  cursor: pointer;
+}
+
+.btnsearch-ing:hover{
+  transform: scale(1.2) rotate(0deg);
+  background-color: green;
+}
